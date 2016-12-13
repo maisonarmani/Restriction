@@ -15,7 +15,7 @@ class Restriction(Document):
 		for row in field:
 			if row[0]=='Currency':
 				passed=True
-		if !passed:
+		if not passed:
 			frappe.throw("Field is not right!!")
 		#if self.period == 'By Transaction':
 		rule = frappe.db.sql("""select title from tabRestriction where disable=0 and form='{}' and field='{}' and period='{}' and user='{}' """
