@@ -75,7 +75,7 @@ doc_events = {
 #		"before_save": "restriction.restriction.doctype.restriction.restriction.check_restriction",
 #		"on_cancel": "method",
 # 		"on_trash": "method"
-	}
+#	}
  }
 
 # Scheduled Tasks
