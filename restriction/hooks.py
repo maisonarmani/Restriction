@@ -71,9 +71,7 @@ app_license = "MIT"
 # Hook on document methods and events
 
 doc_events = {
-	('Opportunity', 'Quotation', 'Sales Order', 'Delivery Note', 'Sales Invoice',
-		'Supplier Quotation', 'Purchase Order', 'Purchase Receipt',
-		'Purchase Invoice', 'Project', 'Issue','Journal Entry'): {
+	"*": {
 		"before_save": "restriction.restriction.doctype.restriction.restriction.check_restriction",
 #		"on_cancel": "method",
 # 		"on_trash": "method"
