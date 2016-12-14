@@ -24,8 +24,8 @@ class Restriction(Document):
 			frappe.throw("Duplicate rules found {} ".format(row[0]))
 		
 def check_restriction(doc,method):
-	rule = frappe.db.sql("""select field,limit,period,days,date_field from tabRestriction where form='{}' and disable=0 and user='{}' """
-		.format(doc.doctype,frappe.session.user),as_list=1)
+	rule = frappe.db.sql("""select `field`,`limit`,period,days,date_field from tabRestriction where form='{}' and disable=0 and user='{}' 
+		""".format(doc.doctype,frappe.session.user),as_list=1)
 	for row in rule:
 		if row[2]=="By Transaction" :
 			if flt(doc.get(row[0]))>flt(row[1]):
