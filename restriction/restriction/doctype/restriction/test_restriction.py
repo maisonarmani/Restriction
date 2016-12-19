@@ -8,5 +8,5 @@ import unittest
 
 # test_records = frappe.get_test_records('Restriction')
 
-class TestLimitRestriction(unittest.TestCase):
+class TestRestriction(unittest.TestCase):
 	pass

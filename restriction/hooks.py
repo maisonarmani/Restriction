@@ -72,7 +72,7 @@ app_license = "MIT"
 
 doc_events = {
 	"*": {
-		"before_save": "restriction.restriction.doctype.limit_restriction.limit_restriction.check_restriction",
+		"before_save": "restriction.restriction.doctype.restriction.restriction.check_restriction",
 #		"on_cancel": "method",
 # 		"on_trash": "method"
 	}
