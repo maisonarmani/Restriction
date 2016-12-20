@@ -11,7 +11,7 @@ class LimitRestriction(Document):
 	def validate (self):
 		passed=False
 		field = frappe.db.sql(""" select fieldtype from tabDocField where parent='{}' and fieldname='{}' """
-			.format(self.form,self.field),as_list=1)
+			.format(self.form,self.currency_field),as_list=1)
 		for row in field:
 			if row[0]=='Currency':
 				passed=True
