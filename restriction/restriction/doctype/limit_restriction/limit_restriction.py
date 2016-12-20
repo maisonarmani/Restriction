@@ -18,13 +18,13 @@ class LimitRestriction(Document):
 		if not passed:
 			frappe.throw("Field is not right!!")
 		#if self.period == 'By Transaction':
-		rule = frappe.db.sql("""select title from tabLimitRestriction where disable=0 and form='{}' and currency_field='{}' and period='{}' and user='{}' """
+		rule = frappe.db.sql("""select title from `tabLimit Restriction` where disable=0 and form='{}' and currency_field='{}' and period='{}' and user='{}' """
 			.format(self.form,self.field,self.period,self.user),as_list=1)
 		for row in rule:
 			frappe.throw("Duplicate rules found {} ".format(row[0]))
 		
 def check_restriction(doc,method):
-	rule = frappe.db.sql("""select `currency_field`,`limit_value`,period,days,date_field from tabLimitRestriction where form='{}' and disable=0 and user='{}' 
+	rule = frappe.db.sql("""select `currency_field`,`limit_value`,period,days,date_field from `tabLimit Restriction` where form='{}' and disable=0 and user='{}' 
 		""".format(doc.doctype,frappe.session.user),as_list=1)
 	for row in rule:
 		if row[2]=="By Transaction" :
