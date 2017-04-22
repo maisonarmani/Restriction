@@ -12,13 +12,12 @@ class LimitRestriction(Document):
     def validate(self):
         passed = False
         field = frappe.db.sql("""select fieldtype from tabDocField where parent='{}' and fieldname='{}' """
-                                  .format(self.form, self.currency_field), as_list=1)
+                              .format(self.form, self.currency_field), as_list=1)
         for row in field:
             if row[0] == 'Currency':
                 passed = True
         if not passed:
             frappe.throw("Inappropriate field used as currency field.")
-
         limit = frappe.db.sql("""select name from `tabLimit Restriction` where form='{}' and user='{}' """
                                   .format(self.form, self.user), as_list=1)
         err = "Sorry... Transaction limit already exist for {} on {}".format(self.user, self.form)
