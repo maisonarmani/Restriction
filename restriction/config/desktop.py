@@ -6,8 +6,8 @@ def get_data():
 	return [
 		{
 			"module_name": "Restriction",
-			"color": "grey",
-			"icon": "octicon octicon-file-directory",
+			"color": "#a23030",
+			"icon": "octicon octicon-lock",
 			"type": "module",
 			"label": _("Restriction")
 		}
