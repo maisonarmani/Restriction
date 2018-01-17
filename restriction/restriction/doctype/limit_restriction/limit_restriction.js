@@ -2,14 +2,18 @@
 // For license information, please see license.txt
 // Limit Restriction
 frappe.ui.form.on('Limit Restriction', {
-	refresh: function(frm) {
+    refresh: function (frm) {
 
-	}
+    },
+    by_user: function (frm,dt,dn) {
+        if (cur_frm.doc.by_user != "") {
+            frappe.model.set_value(dt, dn, "by_role", "")
+        }
+    },
+    by_role: function (frm, dt, dn) {
+        if (cur_frm.doc.by_role != "") {
+            frappe.model.set_value(dt, dn, "by_user", "")
+        }
+    }
+
 });
-
-/**
- *
-	cur_frm.fields_dict['currency_field'].get_query = function(doc) {
-		return { filters:{ 'parent': doc.form } }
-	};
- */

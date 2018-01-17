@@ -4,11 +4,11 @@ from . import __version__ as app_version
 
 app_name = "restriction"
 app_title = "Restriction"
-app_publisher = "bobzz.zone@gmail.com"
+app_publisher = "masonarmani38@gmail.com"
 app_description = "Restriction"
 app_icon = "octicon octicon-file-directory"
 app_color = "grey"
-app_email = "bobzz.zone@gmail.com"
+app_email = "masonarmani38@gmail.com"
 app_license = "MIT"
 
 # Includes in <head>
@@ -71,10 +71,8 @@ app_license = "MIT"
 # Hook on document methods and events
 
 doc_events = {
-	"*": {
-		"before_save": "restriction.restriction.doctype.limit_restriction.limit_restriction.check_restriction",
-#		"on_cancel": "method",
-# 		"on_trash": "method"
+	("Expense Claim","Purchase Order", "Sales Order" ,"Sales Invoice" , "Purchase Invoice"): {
+		"on_change": "restriction.restriction.doctype.limit_restriction.limit_restriction.check_restriction",
 	}
  }
 
