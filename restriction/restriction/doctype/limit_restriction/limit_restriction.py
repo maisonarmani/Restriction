@@ -86,7 +86,12 @@ def check_restriction(doc, method):
             row[7] holds the role the limitation is on doctype / form
             row[8] holds the target action
         """
-        if doc.workflow_state == str(row[8]):
+
+        status_used = "workflow_state"
+        if str(row[5]) == str("Expense Claim"):
+            status_used = "approval_status"
+
+        if doc.get(status_used) == str(row[8]):
             if row[2] == "By Transaction":
                 if flt(doc.get(row[0])) > flt(row[1]):
                     frappe.throw(
