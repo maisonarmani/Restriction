@@ -39,7 +39,6 @@ class LimitRestriction(Document):
 
 
 def check_restriction(doc, method):
-    frappe.errprint(method)
     # check if the user has a limitation
     rule1 = frappe.db.sql("""select `currency_field`,`limit_value`,`period` ,`days`, `date_field`, `form`,
       `by_user`,`by_role`,`target_action` from `tabLimit Restriction`
